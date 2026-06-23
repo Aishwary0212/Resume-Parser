@@ -9,7 +9,7 @@ UPLOAD_DIR=Path("uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 @app.post("/parse-resume")
 async def upload_pdf(file:UploadFile=File(...)):
-    file_path-None
+    file_path=None
     try:
         file_path=UPLOAD_DIR/file.filename
         with open(file_path,"wb") as buffer:
