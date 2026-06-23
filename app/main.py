@@ -7,6 +7,10 @@ app=FastAPI()
 
 UPLOAD_DIR=Path("uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
+
+@app.get("/")
+def root():
+    return {"for Testing go to /docs also for now it is doing for pdf only"}
 @app.post("/parse-resume")
 async def upload_pdf(file:UploadFile=File(...)):
     file_path=None
