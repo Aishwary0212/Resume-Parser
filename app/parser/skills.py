@@ -11,7 +11,9 @@ SKILL_CATEGORIES = {
         "frameworks/tools",
         "frameworks & tools",
         "libraries",
-        "libraries/frameworks"
+        "libraries/frameworks",
+        "web technologies",
+        "web"
     ],
 
     "tools": [
@@ -23,9 +25,16 @@ SKILL_CATEGORIES = {
 
     "databases": [
         "databases",
-        "database"
+        "database",
+        "database systems"
     ],
-
+    "ai/ml":[
+        "ai/ml",
+        "artificial intelligence",
+        "machine learning",
+        "ai",
+        "ml"
+    ],
     "core_concepts": [
         "core concepts",
         "concepts",

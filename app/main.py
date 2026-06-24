@@ -1,7 +1,7 @@
-from fastapi import FastAPI, UploadFile,File
+from fastapi import FastAPI, UploadFile,File,HTTPException
 import shutil
 from pathlib import Path
-from app.pdf_extractor import extract_text
+from app.text_extractor import extract_text
 from app.parser.parser import parse_resume
 app=FastAPI()
 
@@ -13,6 +13,12 @@ def root():
     return {"for Testing go to /docs also for now it is doing for pdf only"}
 @app.post("/parse-resume")
 async def upload_pdf(file:UploadFile=File(...)):
+    extension=Path(file.filename).suffix.lower()
+    if(extension) not in [".pdf",".docx"]:
+        raise HTTPException(
+            status_code=400,
+            detail="Unsupported file format"
+        )
     file_path=None
     try:
         file_path=UPLOAD_DIR/file.filename

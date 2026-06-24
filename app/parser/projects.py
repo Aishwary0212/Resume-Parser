@@ -12,8 +12,8 @@ def parse_projects(text: str):
         if (
             i + 1 < len(lines)
             and "," in lines[i + 1]
-            and not line.startswith("•")
-            and not lines[i + 1].startswith("•")
+            and not line.startswith("•") or line.startswith("o")
+            and not lines[i + 1].startswith("•")  or line.startswith("o")
         ):
             if current_project:
                 projects.append(current_project)
